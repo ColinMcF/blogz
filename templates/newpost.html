@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}<h1>Display your thoughts</h1>
+<p>
+    <form action="/newpost" method="post">
+        <strong>Title</strong>
+        <label><span class="color">{{message}}</span></label>
+
+    <input type="text" name="blogtitle" >
+    <br>
+    <br>
+    <textarea name="blogbody" rows="5" cols="60" placeholder="How're you feeling?">{{body}}</textarea>
+    <br>
+    <input type="submit" value="Submit Entry">
+    </form>
+</p>
+
+{% endblock %}
