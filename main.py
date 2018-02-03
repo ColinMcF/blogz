@@ -24,7 +24,15 @@ def index():
 
 @app.route('/blog', methods=['POST', 'GET'])
 def blog():
-    return render_template('blog.html')
+
+    if request.args.get("id"):
+        blog_id = request.args.get("id")
+        blog = Blog.query.get(blog_id)
+        return render_template('displaypost.html', blog = blog)
+
+    else:
+
+        return render_template('blog.html')
 
 @app.route('/newpost', methods=['POST', 'GET'])
 def newpost(): 
