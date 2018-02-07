@@ -1,18 +1,55 @@
 {% extends "base.html" %}
 
-{% block content %}<h1>Display your thoughts</h1>
-<p>
-    <form  method="post">
-        <strong>Title</strong>
-        <label><span class="color">{{message}}</span></label>
+{% block style %}
+    .error {
+        color: red
+    } 
+    form {
+         background-color: #eee;
+         padding: 20px;
+         margin: 0 auto;
+         width: 540px;
+         font: 20px sans-serif;
+         border-radius: 10px;
+         }
+            
+         textarea {
+             margin: 10px 0;
+             width: 540px;
+             height: 120px;
+            }
+      h1 {
+        text-align: center;
+       }  
 
-    <input type="text" name="title" >
-    <br>
-    <br>
-    <textarea name="body" rows="5" cols="60" placeholder="How're you feeling?">{{body}}</textarea>
-    <br>
-    <input type="submit" value="Submit Entry">
+{% endblock %}
+
+{% block content %}
+    <h1>A Blog Entry</h1>  
+    <div class = main-np>
+    <form action = "{{url_for('newpost')}}", method = "POST">
+        <label>
+            What's the name
+            <br/>
+            <input name = "title" type = "text" value = "{{blg_title}}" />
+        </label>
+          <p> 
+            <span class = "error">
+               {{blog_title_error}}
+            </span>
+          </p>
+        <br/>
+        <label>
+            Your New Blog Post
+            <br/>
+            <textarea name = "body">{{blg_post}}</textarea>
+        </label>
+           <p>
+            <span class = "error">{{body_error}}</span>
+           </p>
+        <br />
+
+        <input type = "submit" value = "Post"/>
     </form>
-</p>
-
+    </div>
 {% endblock %}

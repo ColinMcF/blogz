@@ -1,15 +1,29 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
     <head>
-       <title>let's build a blog</title> 
+        
+        <title> Blogz </title>
     </head>
-<body>
     <header>
-        <a href="/"><button>Main page</button></a>
-        <a href="/newpost"><button>Make a blog</button></a>
-    </header>
-    <h1 align="Center">Build a blog</h1>
-    {% block content %}
-    {% endblock %}
-</body>
+    </header> 
+    <body>
+           <div>
+                <nav class = "nav-bar">
+                    <a href='/'><button>Home</button></a>
+
+                    <a href = '/blog'><button> View Blogs</button></a>
+                    
+                    <a href = "/newpost"><button> Make a new post </button></a>
+
+                    <a href="/signup"><button>Sign up</button></a>
+
+                    <a href="/login"><button>Login</button> </a>
+
+                    <a href="/logout"><button>Logout</button> </a>
+                </nav>
+            </div>
+                {% block content %}
+                {% endblock %}
+    </body>
 </html>
+
